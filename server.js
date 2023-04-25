@@ -2,8 +2,9 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
-const PORT = 3001;
-const db = require('./db/notes.json');
+const PORT = process.env.PORT || 3001;
+
+const db = require('./db/db.json');
 const uuid = require('./helpers/uuid');
 const { readFromFile, readAndAppend, writeToFile } = require('./helpers/fsUtils');
 
@@ -23,9 +24,10 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-    fs.readFile('db/notes.json', function (err, data) {
+    fs.readFile('db/db.json', function (err, data) {
         if (err) throw err;
-        return res.status(200).json(db);
+        let parsedData = JSON.parse(data);
+        return res.status(200).json(parsedData);
     })
 });
 
@@ -65,12 +67,14 @@ app.post('/api/notes', (req, res) => {
         console.log(response);
         res.status(201).json(response);
 
-        fs.readFile('db/notes.json', 'utf8', (err, data) => {
+        fs.readFile('db/db.json', 'utf8', (err, data) => {
             if (err) throw err;
             const parsedNotes = JSON.parse(data);
             parsedNotes.push(newNote);
-            fs.writeFile('db/notes.json', JSON.stringify(parsedNotes, null, 4), (writeErr) => writeErr ? console.error(writeErr) : console.info('Successfully added note!'));
+            fs.writeFile('db/db.json', JSON.stringify(parsedNotes, null, 4), (writeErr) => writeErr ? console.error(writeErr) : console.info('Successfully added note!'));
         });
+
+        // readAndAppend(newNote, './db/db.json')
     } else {
         res.status(500).json('Error in posting note!');
     }
@@ -78,14 +82,14 @@ app.post('/api/notes', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
     const noteId = req.params.id;
-    readFromFile('db/notes.json')
+    readFromFile('db/db.json')
         .then((data) => JSON.parse(data))
         .then((json) => {
             // Make a new array of all notes except the one with the ID provided in the URL
             const result = json.filter((note) => note.id !== noteId);
 
             // Save that array to the filesystem
-            writeToFile('db/notes.json', result);
+            writeToFile('db/db.json', result);
 
             // Respond to the DELETE request
             res.json(`Item ${noteId} has been deleted 🗑️`);
