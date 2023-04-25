@@ -1,6 +1,6 @@
 # Note Taker
 
-<img src="./public/images/express-noteTaker.jpg" width=50% height=50%>
+<img src="./public/images/express-noteTaker.jpg" width=75% height=75%>
 
 ## Table of Contents 
 * [Description](#Description) 
