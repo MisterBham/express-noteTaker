@@ -1,6 +1,6 @@
 # Note Taker
-![License Badge](https://img.shields.io/badge/License-MIT-yellow.svg)
-Place Screenshot of Application here 
+
+<img src="./public/images/express-noteTaker.jpg" width=50% height=50%>
 
 ## Table of Contents 
 * [Description](#Description) 
@@ -21,21 +21,22 @@ Place Screenshot of Application here
 Note taking program to keep track of todo items or retain notes for later use
 
 ### Installation
-npm install
+`npm install`
 
 ### Usage
-To take and retain notes for later use
+`npm start` <br>
+Hosted application here: <a href="https://xpress-notetaker.herokuapp.com/" target="_blank">https://xpress-notetaker.herokuapp.com/</a>
 
-### License
-Further information regarding this specific license can be found via: https://opensource.org/license/mit/. 
+### License 
+Further information regarding this specific license can be found via: https://opensource.org/license/mit/. <br>
+![License Badge](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ### Contributing
-Open Issues on the GitHub repo!
+Open <a href="https://github.com/MisterBham/express-noteTaker/issues" target="_blank">Issues</a> on the GitHub repo!
 
 ### Testing
 no tests provided at this time
 
 ### Questions
-MisterBham- Check them out on their [GitHub page](https://github.com/MisterBham)
-Should you have any further questions, please reach the developer at: misterbham.dev@gmail.com. 
+Should you have any further questions, please reach the developer at: <a href="mailto:misterbham.dev@gmail.com">misterbham.dev@gmail.com</a>. 
 
