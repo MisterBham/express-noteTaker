@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "title": "Groceries",
+        "text": "milk, bread, lunch meat",
+        "id": "856e"
+    },
+    {
+        "title": "Pay Bills",
+        "text": "utilities, credit card, car note",
+        "id": "195e"
+    },
+    {
+        "title": "Doctor Appointment",
+        "text": "May 24",
+        "id": "5352"
+    }
+]
