@@ -1,7 +1,7 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Note taking program to keep track of todo items or retain notes for later use",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
